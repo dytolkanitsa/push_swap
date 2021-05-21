@@ -36,10 +36,18 @@ void	ft_rra(t_check *check);
 void	ft_rrb(t_check *check);
 void	ft_rrr(t_check *check);
 
+void	sort_five_or_less(t_check *check, int argc);
+
+t_stack	*add_in_list(int argc, char **str);
+t_stack	*ft_lstnew(int nbr);
+void	push_swap(t_check *check, int argc, char **argv);
+void	init_check(t_check *check);
 void	add_front(t_check *check, int value, char name);
 void	delit_front(t_check *check, char name);
+int		find_max(t_check *check, char name);
+int		max_value(t_stack *stack, int size);
+int		find_min(t_check *check, char name);
+int		min_value(t_stack *stack, int size);
 int		ft_atoi(char *str);
 int		ft_lstsize(t_check *check);
-t_stack	*ft_del(t_stack *stack);
-t_stack	*ft_lstnew(int nbr);
 #endif

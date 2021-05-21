@@ -4,5 +4,5 @@ void	ft_rrr(t_check *check)
 {
 	ft_rra(check);
 	ft_rrb(check);
-	// write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }

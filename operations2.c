@@ -19,7 +19,7 @@ void	ft_ra(t_check *check)
 		temp++;
 	}
 	p->nbr = top;
-	// write(1, "r\n", 2);
+	write(1, "ra\n", 3);
 }
 
 void	ft_rb(t_check *check)
@@ -41,14 +41,14 @@ void	ft_rb(t_check *check)
 		temp++;
 	}
 	p->nbr = top;
-	// write(1, "rb\n", 2);
+	write(1, "rb\n", 3);
 }
 
 void	ft_rr(t_check *check)
 {
 	ft_ra(check);
 	ft_rb(check);
-// 	write(1, "rr\n", 2);
+	write(1, "rr\n", 3);
 }
 
 void	ft_rra(t_check *check)
@@ -67,7 +67,7 @@ void	ft_rra(t_check *check)
 	check->a = new;
 	p->next = NULL;
 	p->previous = NULL;
-	// write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	ft_rrb(t_check *check)
@@ -86,5 +86,5 @@ void	ft_rrb(t_check *check)
 	check->b = new;
 	p->next = NULL;
 	p->previous = NULL;
-	// write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
