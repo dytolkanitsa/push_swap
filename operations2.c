@@ -4,6 +4,8 @@ void	ft_ra(t_check *check)
 {
 	if (check->a)
 	{
+		printf("<%d>\n", check->a->previous->nbr);
+		// check->a->previous = 
 		check->a = check->a->next;
 	}
 	// write(1, "ra\n", 2);

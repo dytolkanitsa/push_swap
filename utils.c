@@ -11,20 +11,20 @@ void	add_front(t_check *check, int nbr, char name)
 		head = &check->b;
 	if (*head)
 	{
-		tmp = (t_stack *)malloc(sizeof(t_stack));
+		tmp = (struct s_stack *)malloc(sizeof(t_stack));
 		//if (!(*tmp))
 			// функция для ошибок i guess
 		tmp->next = *head;
 		tmp->previous = (*head)->previous;
 		(*head)->previous = tmp;
-		tmp->previous->next = tmp;
+		tmp->previous->next = (*head)->next;
 		tmp->nbr = nbr;
 		*head = (*head)->previous;
 		
 	}
 	else
 	{
-		*head = (t_stack *)malloc(sizeof(t_stack));
+		*head = (struct s_stack *)malloc(sizeof(t_stack));
 		//if (!(*head))
 			// функция для ошибок i guess
 		(*head)->next = *head;
@@ -44,7 +44,7 @@ void	delit_front(t_check *check, char name)
 		head = &check->b;
 	if (*head)
 	{
-		if ((*head)->next == NULL)
+		if ((*head)->next == *head)
 		{
 			free(*head);
 			*head = NULL;
