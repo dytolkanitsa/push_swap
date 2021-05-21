@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static t_stack	*ft_lstnew(int nbr)
+t_stack	*ft_lstnew(int nbr)
 {
 	t_stack	*list;
 
@@ -9,6 +9,7 @@ static t_stack	*ft_lstnew(int nbr)
 		return (NULL);
 	list->nbr = nbr;
 	list->next = list;
+	list->previous = list;
 	return (list);
 }
 
@@ -31,6 +32,9 @@ static t_stack	*add_in_list(int argc, char **str)
 		newlist = newlist->next;
 		i++;
 	}
+	head->size = i - 1;
+	head->previous = newlist;
+	head->previous->next = head;
 	return (head);
 }
 
@@ -43,9 +47,10 @@ int	main(int argc, char **argv)
     i = 1;
     check = (struct s_check *)malloc(sizeof(t_check));
 	check->a = add_in_list(argc, argv);
-	check->b = add_in_list(argc, argv);
-	ft_ra(check);
+	// check->b = add_in_list(argc, argv);
+	ft_rra(check);
 	// ft_sb(check);
+	printf("-------\n");
 	while (check->a->next && i < argc)
 	{
 		printf("%d\n", check->a->nbr);

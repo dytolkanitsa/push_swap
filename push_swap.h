@@ -9,6 +9,7 @@
 typedef struct s_stack
 {
 	int				nbr;
+	int				size;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 }	t_stack;
@@ -38,4 +39,7 @@ void	ft_rrr(t_check *check);
 void	add_front(t_check *check, int value, char name);
 void	delit_front(t_check *check, char name);
 int		ft_atoi(char *str);
+int		ft_lstsize(t_check *check);
+t_stack	*ft_del(t_stack *stack);
+t_stack	*ft_lstnew(int nbr);
 #endif

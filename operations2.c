@@ -2,21 +2,45 @@
 
 void	ft_ra(t_check *check)
 {
-	if (check->a)
+	int		temp;
+	int		size;
+	int		top;
+	t_stack	*p;
+
+	p = check->a;
+	size = check->a->size;
+	temp = 1;
+	top = check->a->nbr;
+	while (temp < size)
 	{
-		printf("<%d>\n", check->a->previous->nbr);
-		// check->a->previous = 
-		check->a = check->a->next;
+		p->nbr = p->next->nbr;
+		p = p->next;
+		p->nbr = p->next->nbr;
+		temp++;
 	}
-	// write(1, "ra\n", 2);
+	p->nbr = top;
+	// write(1, "r\n", 2);
 }
 
 void	ft_rb(t_check *check)
 {
-	if (check->b)
+	int		temp;
+	int		size;
+	int		top;
+	t_stack	*p;
+
+	p = check->b;
+	size = check->b->size;
+	temp = 1;
+	top = check->b->nbr;
+	while (temp < size)
 	{
-		check->b = check->b->next;
+		p->nbr = p->next->nbr;
+		p = p->next;
+		p->nbr = p->next->nbr;
+		temp++;
 	}
+	p->nbr = top;
 	// write(1, "rb\n", 2);
 }
 
@@ -29,18 +53,38 @@ void	ft_rr(t_check *check)
 
 void	ft_rra(t_check *check)
 {
-	if (check->a)
-	{
-		check->a = check->a->previous;
-	}
+	t_stack	*p;
+	t_stack	*last;
+	t_stack	*new;
+	int		size;
+	int		temp;
+
+	p = check->a->previous;
+	size = check->a->size;
+	new = ft_lstnew(p->nbr);
+	new->next = check->a;
+	new->previous = p->previous;
+	check->a = new;
+	p->next = NULL;
+	p->previous = NULL;
 	// write(1, "rra\n", 3);
 }
 
 void	ft_rrb(t_check *check)
 {
-	if (check->b)
-	{
-		check->b = check->b->previous;
-	}
+	t_stack	*p;
+	t_stack	*last;
+	t_stack	*new;
+	int		size;
+	int		temp;
+
+	p = check->b->previous;
+	size = check->b->size;
+	new = ft_lstnew(p->nbr);
+	new->next = check->b;
+	new->previous = p->previous;
+	check->b = new;
+	p->next = NULL;
+	p->previous = NULL;
 	// write(1, "rrb\n", 3);
 }

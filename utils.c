@@ -17,7 +17,8 @@ void	add_front(t_check *check, int nbr, char name)
 		tmp->next = *head;
 		tmp->previous = (*head)->previous;
 		(*head)->previous = tmp;
-		tmp->previous->next = (*head)->next;
+		tmp->previous->next = tmp;
+		// tmp->previous->next = (*head)->next;
 		tmp->nbr = nbr;
 		*head = (*head)->previous;
 		
@@ -96,4 +97,22 @@ int	ft_atoi(char *str)
 		str++;
 	}
 	return (nbr * sign);
+}
+
+int	ft_lstsize(t_check *check)
+{
+	t_stack	*head;
+	int		i;
+
+	i = 0;
+	head = check->a;
+	if (head)
+	{
+		while (head != check->a)
+		{
+			head = head->next;
+			i++;
+		}
+	}
+	return (i);
 }
