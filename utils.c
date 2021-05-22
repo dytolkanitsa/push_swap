@@ -53,6 +53,7 @@ void	delit_front(t_check *check, char name)
 		else
 		{
 			tmp = *head;
+			tmp->previous = (*head)->previous;
 			*head = (*head)->next;
 			tmp->previous->next = *head;
 			(*head)->previous = tmp->previous;

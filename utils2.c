@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_stack	*ft_lstnew(int nbr)
+t_stack	*ft_lstnew(int nbr, t_stack *previous)
 {
 	t_stack	*list;
 
@@ -8,8 +8,8 @@ t_stack	*ft_lstnew(int nbr)
 	if (list == NULL)
 		return (NULL);
 	list->nbr = nbr;
-	list->next = list;
-	list->previous = list;
+	list->next = NULL;
+	list->previous = previous;
 	return (list);
 }
 
@@ -19,58 +19,56 @@ t_stack	*add_in_list(int argc, char **str)
 	t_stack	*head;
 	int		i;
 
-	i = 1;
-	newlist = ft_lstnew(0);
-	head = newlist;
-	if (newlist == 0)
-		return (0);
+	i = 2;
+	head = ft_lstnew(ft_atoi(str[1]), NULL);
+	// if (head == 0)
+	// 	return (0);
+	newlist = head;
 	while (i < argc)
 	{
-		newlist->nbr = ft_atoi(str[i]);
-		if (i != argc - 1)
-			newlist->next = ft_lstnew(0);
+		newlist->next = ft_lstnew(ft_atoi(str[i]), newlist);
 		newlist = newlist->next;
 		i++;
 	}
 	head->size = i - 1;
+	newlist->next = head;
 	head->previous = newlist;
-	head->previous->next = head;
 	return (head);
 }
 
-int	max_value(t_stack *stack, int size)
+int	max_value(t_stack *stack)
 {
-	int		temp;
-	int		res;
+	int		max;
+	t_stack	*end;
+	t_stack	*tmp;
 
-	temp = 1;
-	res = stack->nbr;
-	while (temp <= size)
+	tmp = stack;
+	max = tmp->nbr;
+	end = stack->previous;
+	while (1)
 	{
-		if (stack->nbr > res)
-			res = stack->nbr;
-		stack = stack->next;
-		temp++;
+		if (tmp->nbr > max)
+			max = tmp->nbr;
+		if (tmp == end)
+			break ;
+		tmp = tmp->next;
 	}
-	return (res);
+	return (max);
 }
 
 int	find_max(t_check *check, char name)
 {
 	t_stack	*stack;
-	int		size;
 	int		res;
 
 	if (name == 'a')
 	{
 		stack = check->a;
-		size = check->a->size;
 	}
 	else
 	{
 		stack = check->b;
-		size = check->b->size;
 	}
-	res = max_value(stack, size);
+	res = max_value(stack);
 	return (res);
 }

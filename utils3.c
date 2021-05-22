@@ -1,20 +1,23 @@
 #include "push_swap.h"
 
-int	min_value(t_stack *stack, int size)
+int	min_value(t_stack *stack)
 {
-	int		temp;
-	int		res;
+	int		min;
+	t_stack	*end;
+	t_stack	*tmp;
 
-	temp = 1;
-	res = stack->nbr;
-	while (temp <= size)
+	tmp = stack;
+	min = tmp->nbr;
+	end = stack->previous;
+	while (1)
 	{
-		if (stack->nbr < res)
-			res = stack->nbr;
-		stack = stack->next;
-		temp++;
+		if (tmp->nbr < min)
+			min = tmp->nbr;
+		if (tmp == end)
+			break ;
+		tmp = tmp->next;
 	}
-	return (res);
+	return (min);
 }
 
 int	find_min(t_check *check, char name)
@@ -26,13 +29,11 @@ int	find_min(t_check *check, char name)
 	if (name == 'a')
 	{
 		stack = check->a;
-		size = check->a->size;
 	}
 	else
 	{
 		stack = check->b;
-		size = check->b->size;
 	}
-	res = min_value(stack, size);
+	res = min_value(stack);
 	return (res);
 }
