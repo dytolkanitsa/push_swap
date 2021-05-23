@@ -50,48 +50,19 @@ static void	sort_five(t_check *check)
 
 	c = check;
 	min = find_min(check, 'a');
-	// printf("<%d>\n", min);
-	// while (1)
-	// {
-	// 	if (stack->nbr != min)
-	// 	{
-	// 		ft_ra(check);
-	// 	}
-	// 	else
-	// 		break ;
-	// }
-	// ft_pb(check);
-	// sort_four(check);
-	// ft_pa(check);
-	// // printf("%s\n", "-----");
-	ft_pb(c);
-	ft_pb(c);
-	// printf("<%s>\n", "-------");
-	sort_three(c);
-	printf("<%d>\n", c->b->nbr);
-	printf("<%d>\n", c->a->nbr);
-	printf("<%d>\n", c->a->previous->nbr);
 	while (1)
 	{
-		if ((c->b->nbr > c->a->nbr))
+		if (c->a->nbr != min)
 		{
-			// ft_pa(c);
 			ft_ra(c);
-			// break ;
+			c->a = c->a->next;
 		}
-		else
-		{
-			ft_pa(c);
-			break ;
-		}
-	}
-	while (1)
-	{
-		if (c->a->nbr > min)
-			ft_rra(c);
 		else
 			break ;
 	}
+	ft_pb(c);
+	sort_four(c);
+	ft_pa(c);
 }
 
 void	sort_five_or_less(t_check *check, int argc)
