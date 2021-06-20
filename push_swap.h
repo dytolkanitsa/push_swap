@@ -44,7 +44,7 @@ int		sorted(t_check *check);
 
 t_stack	*add_in_list(int argc, char **str);
 t_stack	*ft_lstnew(int nbr, t_stack *previous);
-void	push_swap(t_check *check, int argc, char **argv);
+void	push_swap(t_check *check, int argc);
 void	init_check(t_check *check);
 void	add_front(t_check *check, int value, char name);
 void	delit_front(t_check *check, char name);

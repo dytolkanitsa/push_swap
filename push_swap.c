@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	push_swap(t_check *check, int argc, char **argv)
+void	push_swap(t_check *check, int argc)
 {
 	argc = argc - 1;
 	if (!sorted(check))
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	check = (struct s_check *)malloc(sizeof(t_check));
 	check->a = add_in_list(argc, argv);
 	check->b = NULL;
-	push_swap(check, argc, argv);
+	push_swap(check, argc);
 	while (check->a->next && i < argc)
 	{
 		printf("%d\n", check->a->nbr);

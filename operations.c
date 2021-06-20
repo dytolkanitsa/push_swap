@@ -6,9 +6,9 @@ void	ft_sa(t_check *check)
 
 	if (check->a)
 	{
-		temp = check->a->nbr;  // temp = a
-		check->a->nbr = check->a->next->nbr; // a = b
-		check->a->next->nbr = temp; // b = temp
+		temp = check->a->nbr;
+		check->a->nbr = check->a->next->nbr;
+		check->a->next->nbr = temp;
 	}
 	write(1, "sa\n", 3);
 }
@@ -19,9 +19,9 @@ void	ft_sb(t_check *check)
 
 	if (check->b)
 	{
-		temp = check->b->nbr;  // temp = a
-		check->b->nbr = check->b->next->nbr; // a = b
-		check->b->next->nbr = temp; // b = temp
+		temp = check->b->nbr;
+		check->b->nbr = check->b->next->nbr;
+		check->b->next->nbr = temp;
 	}
 	write(1, "sb\n", 3);
 }
@@ -36,12 +36,12 @@ void	ft_ss(t_check *check)
 void	ft_pa(t_check *check)
 {
 	int	tmp;
+
 	if (check->b)
 	{
 		tmp = check->b->nbr;
-		add_front(check, tmp, 'a'); // добавляем новый элемент в список 
-		delit_front(check, 'b'); // удаляем первый элемент из списка
-		// я когда вот так подаю число это я подаю само число или значение, тип мне нужна временная переменная или нет
+		add_front(check, tmp, 'a');
+		delit_front(check, 'b');
 	}
 	write(1, "pa\n", 3);
 }
@@ -49,12 +49,12 @@ void	ft_pa(t_check *check)
 void	ft_pb(t_check *check)
 {
 	int	tmp;
+
 	if (check->a)
 	{
 		tmp = check->a->nbr;
-		add_front(check, tmp, 'b'); // добавляем новый элемент в список 
-		delit_front(check, 'a'); // удаляем первый элемент из списка
-		// я когда вот так подаю число это я подаю само число или значение, тип мне нужна временная переменная или нет
+		add_front(check, tmp, 'b');
+		delit_front(check, 'a');
 	}
 	write(1, "pb\n", 3);
 }

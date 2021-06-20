@@ -60,7 +60,6 @@ int	min_value(t_stack *stack)
 int	find_min(t_check *check, char name)
 {
 	t_stack	*stack;
-	int		size;
 	int		res;
 
 	if (name == 'a')

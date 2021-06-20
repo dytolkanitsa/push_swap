@@ -1,9 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgarg <lgarg@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/20 17:07:29 by lgarg             #+#    #+#             */
+/*   Updated: 2021/06/20 18:57:34 by lgarg            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+static void	for_front1(t_stack **head, int nbr)
+{
+	t_stack	*tmp;
+	tmp = (struct s_stack *)malloc(sizeof(t_stack));
+	if (!tmp)
+		return ;
+	tmp->next = *head;
+	tmp->previous = (*head)->previous;
+	(*head)->previous = tmp;
+	tmp->previous->next = tmp;
+	tmp->nbr = nbr;
+	*head = (*head)->previous;
+}
 
 void	add_front(t_check *check, int nbr, char name)
 {
 	t_stack	**head;
-	t_stack	*tmp;
 
 	if (name == 'a')
 		head = &check->a;
@@ -11,21 +36,13 @@ void	add_front(t_check *check, int nbr, char name)
 		head = &check->b;
 	if (*head)
 	{
-		tmp = (struct s_stack *)malloc(sizeof(t_stack));
-		//if (!(*tmp))
-			// функция для ошибок i guess
-		tmp->next = *head;
-		tmp->previous = (*head)->previous;
-		(*head)->previous = tmp;
-		tmp->previous->next = tmp;
-		tmp->nbr = nbr;
-		*head = (*head)->previous;
+		for_front1(head, nbr);
 	}
 	else
 	{
 		*head = (struct s_stack *)malloc(sizeof(t_stack));
-		//if (!(*head))
-			// функция для ошибок i guess
+		if (!(*head))
+			return ;
 		(*head)->next = *head;
 		(*head)->previous = *head;
 		(*head)->nbr = nbr;
@@ -74,7 +91,6 @@ int	ft_atoi(char *str)
 {
 	int	sign;
 	int	nbr;
-	int	num;
 
 	sign = 1;
 	nbr = 0;
@@ -89,8 +105,6 @@ int	ft_atoi(char *str)
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
-		if (!num--)
-			return ((1 + sign) / (-2));
 		nbr = nbr * 10 + (*str - '0');
 		str++;
 	}

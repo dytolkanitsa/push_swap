@@ -20,7 +20,6 @@ static void	sort_three(t_check *check)
 static void	sort_four(t_check *check)
 {
 	int		min;
-	int		max;
 	t_check	*stack;
 	t_stack	*p;
 
@@ -44,7 +43,6 @@ static void	sort_four(t_check *check)
 
 static void	sort_five(t_check *check)
 {
-	int		max;
 	int		min;
 	t_check	*c;
 
