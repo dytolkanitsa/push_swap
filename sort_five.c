@@ -41,7 +41,7 @@ static void	sort_four(t_check *check)
 	ft_pa(stack);
 }
 
-static void	sort_five(t_check *check)
+void	sort_five(t_check *check)
 {
 	int		min;
 	t_check	*c;

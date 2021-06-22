@@ -9,22 +9,31 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				size;
+	// int				index;
+	int				count;
+	// char			**commands;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 }	t_stack;
 
-typedef struct s_struct
-{
-	int				nbr1;
-	int				nbr2;
-	char			commands;
-	struct s_struct	*next;
-}	t_struct;
+// typedef struct s_push
+// {
+// 	int				index1;
+// 	int				index2;
+// 	char			**commands;
+// 	struct s_push	*next;
+// }	t_push;
 
 typedef struct s_check
 {
+	int		*arrcount; // кол-во коммад
+	char	**commands;
 	t_stack	*a;
 	t_stack	*b;
+	int		size_a;
+	int		size_b;
+	int		index_a;
+	int		index_b;
 }	t_check;
 
 void	ft_sa(t_check *check);
@@ -40,6 +49,7 @@ void	ft_rrb(t_check *check);
 void	ft_rrr(t_check *check);
 
 void	sort_five_or_less(t_check *check, int argc);
+void	sort_anything_else(t_check *check);
 int		sorted(t_check *check);
 
 t_stack	*add_in_list(int argc, char **str);
@@ -60,4 +70,8 @@ int		if_dups(t_check *check);
 int		if_numbers(t_check *check);
 int		ft_isdigit(char c);
 int		check_argument(int argc, char **str);
+
+void	get_commands(t_check *check);
+void	sort_five(t_check *check);
+
 #endif
