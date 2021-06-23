@@ -70,16 +70,3 @@ int	ft_lstsize(t_check *check)
 	}
 	return (i);
 }
-
-// t_struct	*ft_lstnew2(t_struct *struc)
-// {
-// 	t_struct	*list;
-
-// 	list = (struct s_struct *)malloc(sizeof(t_struct));
-// 	if (list == NULL)
-// 		return (NULL);
-// 	list->nbr1 = struc->nbr1;
-// 	list->nbr2 = struc->nbr2;
-// 	list->next = NULL;
-// 	return (list);
-// }

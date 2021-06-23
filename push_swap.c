@@ -18,11 +18,23 @@ int	main(int argc, char **argv)
 {
 	t_check	*check;
 	int		i;
+	// char	**mas;
 
 	if (argc < 2)
 		return (0);
 	i = 0;
 	check = (struct s_check *)malloc(sizeof(t_check));
+	// while (i < argc)
+	// {
+	// 	mas = ft_split(argv[i], ' ');
+	// 	i++;
+	// }
+	// i = 0;
+	// while (i < argc - 1)
+	// {
+	// 	printf("%s", mas[i]);
+	// 	i++;
+	// }
 	check->a = add_in_list(argc, argv);
 	check->b = NULL;
 	check->size_a = check->a->size;

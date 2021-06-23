@@ -6,7 +6,7 @@
 /*   By: lgarg <lgarg@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 17:07:29 by lgarg             #+#    #+#             */
-/*   Updated: 2021/06/20 18:57:34 by lgarg            ###   ########.fr       */
+/*   Updated: 2021/06/23 18:36:20 by lgarg            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	for_front1(t_stack **head, int nbr)
 {
 	t_stack	*tmp;
+
 	tmp = (struct s_stack *)malloc(sizeof(t_stack));
 	if (!tmp)
 		return ;

@@ -9,31 +9,29 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				size;
-	// int				index;
 	int				count;
-	// char			**commands;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 }	t_stack;
 
-// typedef struct s_push
-// {
-// 	int				index1;
-// 	int				index2;
-// 	char			**commands;
-// 	struct s_push	*next;
-// }	t_push;
-
 typedef struct s_check
 {
-	int		*arrcount; // кол-во коммад
+	int		*arrcount;
 	char	**commands;
 	t_stack	*a;
 	t_stack	*b;
 	int		size_a;
 	int		size_b;
-	int		index_a;
-	int		index_b;
+	int		len_b;
+	int		num1;
+	int		num2;
+	int		max_num_a;
+	int		max_num;
+	int		min_num_a;
+	int		min_num_b;
+	int		po;
+	int		count;
+	int		nbr_a;
 }	t_check;
 
 void	ft_sa(t_check *check);
@@ -73,5 +71,16 @@ int		check_argument(int argc, char **str);
 
 void	get_commands(t_check *check);
 void	sort_five(t_check *check);
+char	**ft_split(char const *s, char c);
+void	ft_init_and_move(t_check *check, t_stack **stack_a, \
+									t_stack **stack_b, int *temp);
+int		first_min(t_check *check);
+void	for_find_am_1(t_check *check, t_stack **stack_a, t_stack **stack_b);
+void	for_find_am_2(t_check *check, t_stack **stack_a, t_stack **stack_b);
+void	for_find_am_3(t_check *check);
+void	for_find_am_4(t_check *check, t_stack **stack_b);
+void	for_find_am_5(t_check *check, t_stack **stack_a, t_stack **stack_b);
 
+void	init_get_com(t_check *check);
+void	for_get_com_1(t_check *check, t_stack **stack_a, t_stack **stack_b);
 #endif
