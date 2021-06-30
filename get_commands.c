@@ -39,6 +39,8 @@ void	get_commands(t_check *check)
 	stack_b = check->b;
 	check->len_b = check->size_b;
 	check->arrcount = malloc(sizeof(int) * check->size_b);
+	if (!check->arrcount)
+		return ;
 	while (check->len_b != 0)
 	{
 		num1 = find_nbr_a(check, stack_a, stack_b);

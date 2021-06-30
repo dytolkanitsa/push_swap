@@ -28,8 +28,6 @@ void	for_find_am_1(t_check *check, t_stack **stack_a, t_stack **stack_b)
 		{
 			(*stack_a) = (*stack_a)->next;
 			check->num1++;
-			if (i == check->size_a && (*stack_b)->nbr > (*stack_a)->nbr)
-				check->num1++;
 			i++;
 		}
 	}

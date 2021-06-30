@@ -29,7 +29,7 @@ static int	ft_check_lengh(char *str, char c)
 	return (i);
 }
 
-static void	*ft_free_everything(char **str)
+void	*ft_free_everything(char **str)
 {
 	int	i;
 

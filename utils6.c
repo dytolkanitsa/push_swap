@@ -64,3 +64,15 @@ void	for_get_com_1(t_check *check, t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 }
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}

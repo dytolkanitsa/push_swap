@@ -63,17 +63,17 @@ void	sort_five(t_check *check)
 	ft_pa(c);
 }
 
-void	sort_five_or_less(t_check *check, int argc)
+void	sort_five_or_less(t_check *check, int len)
 {
-	if (argc == 2)
+	if (len == 2)
 	{
 		if (check->a->nbr > check->a->next->nbr)
 			ft_sa(check);
 	}
-	else if (argc == 3)
+	else if (len == 3)
 		sort_three(check);
-	else if (argc == 4)
+	else if (len == 4)
 		sort_four(check);
-	else if (argc == 5)
+	else if (len == 5)
 		sort_five(check);
 }

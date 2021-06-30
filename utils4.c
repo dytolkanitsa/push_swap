@@ -8,18 +8,18 @@ int	ft_isdigit(char c)
 		return (0);
 }
 
-int	check_argument(int argc, char **str)
+int	check_argument(int len, char **str)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < len)
 	{
 		j = 0;
 		while (str[i][j] != '\0')
 		{
-			if (!ft_isdigit(str[i][j]))
+			if (str[i][j] != '-' && !ft_isdigit(str[i][j]))
 				return (0);
 			j++;
 		}
